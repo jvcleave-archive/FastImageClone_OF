@@ -329,7 +329,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>036C10DB13CA962700257835</string>
+										<string>0306310013CAA2F90049D029</string>
 										<key>history</key>
 										<array>
 											<string>0359FEF613C9704500A0CBDC</string>
@@ -356,7 +356,7 @@
 											<string>036C109F13CA7D7800257835</string>
 											<string>036C10CA13CA92C100257835</string>
 											<string>036C10D913CA962700257835</string>
-											<string>036C10DA13CA962700257835</string>
+											<string>036C10DB13CA962700257835</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -414,9 +414,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>036C0F6713CA1C7000257835</string>
+				<string>0306310113CAA2F90049D029</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>036C0F6813CA1C7000257835</string>
+				<string>0306310213CAA2F90049D029</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -554,12 +554,9 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>036C10DC13CA962700257835</string>
-		<string>036C0F7113CA1C7000257835</string>
-		<string>036C0F7213CA1C7000257835</string>
-		<string>/Volumes/WORK_IN_PROGRESS/OPENFRAMEWORKS/007/openFrameworks/apps/jvcApps/FastImageClone/FastImageClone.xcodeproj</string>
-		<string>1C78EAAD065D492600B07095</string>
+		<string>0359FAC513C9699400A0CBDC</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>/Volumes/WORK_IN_PROGRESS/OPENFRAMEWORKS/007/openFrameworks/apps/TO_GITHUB/FastImageClone_OF/FastImageClone.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>443 399 1680 1004 0 0 2560 1578 </string>
@@ -600,8 +597,6 @@
 							<string>419pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -641,7 +636,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>0359FAC513C9699400A0CBDC</string>
-				<string>036C0F6913CA1C7000257835</string>
+				<string>0306310313CAA2F90049D029</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -654,7 +649,7 @@
 			<key>WindowToolGUID</key>
 			<string>0359FAC513C9699400A0CBDC</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -685,8 +680,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {416, 299}}</string>
-											<string>{{416, 0}, {497, 299}}</string>
+											<string>{{0, 0}, {416, 303}}</string>
+											<string>{{416, 0}, {497, 303}}</string>
 										</array>
 									</dict>
 									<key>VerticalSplitView</key>
@@ -701,8 +696,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {913, 299}}</string>
-											<string>{{0, 299}, {913, 277}}</string>
+											<string>{{0, 0}, {913, 303}}</string>
+											<string>{{0, 303}, {913, 273}}</string>
 										</array>
 									</dict>
 								</dict>
@@ -735,7 +730,7 @@
 										<real>267</real>
 									</array>
 									<key>Frame</key>
-									<string>{{416, 0}, {497, 299}}</string>
+									<string>{{416, 0}, {497, 303}}</string>
 									<key>RubberWindowFrame</key>
 									<string>486 740 913 617 0 0 2560 1578 </string>
 								</dict>
@@ -763,13 +758,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>036C0F6A13CA1C7000257835</string>
+				<string>0306310413CAA2F90049D029</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>036C0F6B13CA1C7000257835</string>
-				<string>036C0F6C13CA1C7000257835</string>
-				<string>036C0F6D13CA1C7000257835</string>
-				<string>036C0F6E13CA1C7000257835</string>
-				<string>036C0F6F13CA1C7000257835</string>
+				<string>0306310513CAA2F90049D029</string>
+				<string>0306310613CAA2F90049D029</string>
+				<string>0306310713CAA2F90049D029</string>
+				<string>0306310813CAA2F90049D029</string>
+				<string>0306310913CAA2F90049D029</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>

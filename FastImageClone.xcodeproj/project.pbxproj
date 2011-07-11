@@ -71,6 +71,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0306310A13CAA3060049D029 /* gtsconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gtsconfig.h; sourceTree = "<group>"; };
 		0342877C13C9982C000AE3F3 /* gaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gaction.h; sourceTree = "<group>"; };
 		0342877D13C9982C000AE3F3 /* gactiongroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gactiongroup.h; sourceTree = "<group>"; };
 		0342877E13C9982C000AE3F3 /* gappinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gappinfo.h; sourceTree = "<group>"; };
@@ -651,6 +652,7 @@
 		0359FAD213C969B300A0CBDC /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				0306310A13CAA3060049D029 /* gtsconfig.h */,
 				0342888113C99AE3000AE3F3 /* libgts.a */,
 				0342887113C99A84000AE3F3 /* gts.h */,
 				0342886F13C99A64000AE3F3 /* libgettextpo.a */,
