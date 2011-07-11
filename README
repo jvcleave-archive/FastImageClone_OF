@@ -1,0 +1,6 @@
+openFrameworks 007 port of Kevin Atkinson's Fast Image Cloning Library (Thanks Kevin!)
+
+http://methodart.blogspot.com/2011/07/fast-image-cloning-library-ive-written.html
+
+Kevin's original project is QT based and 64bit so I have included the 32bit versions of the necessary libraries so it can work with OF.
+
