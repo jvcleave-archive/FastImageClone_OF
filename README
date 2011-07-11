@@ -3,4 +3,12 @@ openFrameworks 007 port of Kevin Atkinson's Fast Image Cloning Library (Thanks K
 http://methodart.blogspot.com/2011/07/fast-image-cloning-library-ive-written.html
 
 Kevin's original project is QT based and 64bit so I have included the 32bit versions of the necessary libraries so it can work with OF.
+This was a fairly long process so if the project doesn't at least compile let me know.
+
+CURRENT STATE:
+Loads Image
+You can draw a selection with the mouse - press Return to set selection
+Mesh appears
+
+The OpenGL implementation is a bit beyond my experience so any insights or help with the FastLaplaceComper::Render function would be appreciated!
 
