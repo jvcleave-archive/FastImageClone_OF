@@ -100,7 +100,7 @@ struct _GOutputStreamClass
                                  int                       io_priority,
                                  GCancellable             *cancellable,
                                  GAsyncReadyCallback       callback,
-                                 gpointer                  user_data);
+                                 gpointer                  data);
   gssize      (* splice_finish) (GOutputStream            *stream,
                                  GAsyncResult             *result,
                                  GError                  **error);

@@ -172,15 +172,6 @@ extern void g_cclosure_marshal_STRING__OBJECT_POINTER (GClosure     *closure,
                                                        gpointer      invocation_hint,
                                                        gpointer      marshal_data);
 
-/* BOOL:BOXED,BOXED (./gmarshal.list:50) */
-extern void g_cclosure_marshal_BOOLEAN__BOXED_BOXED (GClosure     *closure,
-                                                     GValue       *return_value,
-                                                     guint         n_param_values,
-                                                     const GValue *param_values,
-                                                     gpointer      invocation_hint,
-                                                     gpointer      marshal_data);
-#define g_cclosure_marshal_BOOL__BOXED_BOXED	g_cclosure_marshal_BOOLEAN__BOXED_BOXED
-
 G_END_DECLS
 
 #endif /* __G_MARSHAL_H__ */

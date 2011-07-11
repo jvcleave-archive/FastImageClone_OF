@@ -84,7 +84,7 @@ struct _GFileOutputStreamClass
                                      GAsyncReadyCallback   callback,
                                      gpointer              user_data);
   GFileInfo * (* query_info_finish) (GFileOutputStream     *stream,
-                                     GAsyncResult         *result,
+                                     GAsyncResult         *res,
                                      GError              **error);
   char      * (* get_etag)          (GFileOutputStream    *stream);
 

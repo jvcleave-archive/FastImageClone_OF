@@ -193,7 +193,7 @@ type_name##_get_type (void) \
 static void \
 type_name##_register_type (GTypeModule *type_module) \
 { \
-  GType g_define_type_id G_GNUC_UNUSED; \
+  GType g_define_type_id; \
   const GTypeInfo g_define_type_info = { \
     sizeof (TypeName##Class), \
     (GBaseInitFunc) NULL, \

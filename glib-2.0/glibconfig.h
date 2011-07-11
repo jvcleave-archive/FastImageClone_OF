@@ -1,6 +1,6 @@
 /* glibconfig.h
  *
- * This is a generated file.  Please modify 'configure.ac'
+ * This is a generated file.  Please modify 'configure.in'
  */
 
 #ifndef __G_LIBCONFIG_H__
@@ -103,8 +103,8 @@ typedef unsigned int guintptr;
 #define g_memmove(dest,src,len) G_STMT_START { memmove ((dest), (src), (len)); } G_STMT_END
 
 #define GLIB_MAJOR_VERSION 2
-#define GLIB_MINOR_VERSION 28
-#define GLIB_MICRO_VERSION 7
+#define GLIB_MINOR_VERSION 25
+#define GLIB_MICRO_VERSION 9
 
 #define G_OS_UNIX
 
@@ -182,8 +182,6 @@ union _GSystemThread
   void  *dummy_pointer;
   long   dummy_long;
 };
-
-#define G_ATOMIC_OP_MEMORY_BARRIER_NEEDED 1
 
 #define GINT16_TO_LE(val)	((gint16) (val))
 #define GUINT16_TO_LE(val)	((guint16) (val))

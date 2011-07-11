@@ -113,8 +113,7 @@ typedef enum
   G_UNICODE_BREAK_HANGUL_V_JAMO,
   G_UNICODE_BREAK_HANGUL_T_JAMO,
   G_UNICODE_BREAK_HANGUL_LV_SYLLABLE,
-  G_UNICODE_BREAK_HANGUL_LVT_SYLLABLE,
-  G_UNICODE_BREAK_CLOSE_PARANTHESIS
+  G_UNICODE_BREAK_HANGUL_LVT_SYLLABLE
 } GUnicodeBreakType;
 
 typedef enum 
@@ -176,7 +175,7 @@ typedef enum
   G_UNICODE_SCRIPT_LINEAR_B,           /* Linb */
   G_UNICODE_SCRIPT_TAI_LE,             /* Tale */
   G_UNICODE_SCRIPT_UGARITIC,           /* Ugar */
-
+      
   /* Unicode-4.1 additions */
   G_UNICODE_SCRIPT_NEW_TAI_LUE,        /* Talu */
   G_UNICODE_SCRIPT_BUGINESE,           /* Bugi */
@@ -205,29 +204,7 @@ typedef enum
   G_UNICODE_SCRIPT_VAI,                /* Vaii */
   G_UNICODE_SCRIPT_CARIAN,             /* Cari */
   G_UNICODE_SCRIPT_LYCIAN,             /* Lyci */
-  G_UNICODE_SCRIPT_LYDIAN,             /* Lydi */
-
-  /* Unicode-5.2 additions */
-  G_UNICODE_SCRIPT_AVESTAN,                /* Avst */
-  G_UNICODE_SCRIPT_BAMUM,                  /* Bamu */
-  G_UNICODE_SCRIPT_EGYPTIAN_HIEROGLYPHS,   /* Egyp */
-  G_UNICODE_SCRIPT_IMPERIAL_ARAMAIC,       /* Armi */
-  G_UNICODE_SCRIPT_INSCRIPTIONAL_PAHLAVI,  /* Phli */
-  G_UNICODE_SCRIPT_INSCRIPTIONAL_PARTHIAN, /* Prti */
-  G_UNICODE_SCRIPT_JAVANESE,               /* Java */
-  G_UNICODE_SCRIPT_KAITHI,                 /* Kthi */
-  G_UNICODE_SCRIPT_LISU,                   /* Lisu */
-  G_UNICODE_SCRIPT_MEETEI_MAYEK,           /* Mtei */
-  G_UNICODE_SCRIPT_OLD_SOUTH_ARABIAN,      /* Sarb */
-  G_UNICODE_SCRIPT_OLD_TURKIC,             /* Orkh */
-  G_UNICODE_SCRIPT_SAMARITAN,              /* Samr */
-  G_UNICODE_SCRIPT_TAI_THAM,               /* Lana */
-  G_UNICODE_SCRIPT_TAI_VIET,               /* Tavt */
-
-  /* Unicode-6.0 additions */
-  G_UNICODE_SCRIPT_BATAK,                  /* Batk */
-  G_UNICODE_SCRIPT_BRAHMI,                 /* Brah */
-  G_UNICODE_SCRIPT_MANDAIC                 /* Mand */
+  G_UNICODE_SCRIPT_LYDIAN              /* Lydi */
 } GUnicodeScript;
 
 /* Returns TRUE if current locale uses UTF-8 charset.  If CHARSET is

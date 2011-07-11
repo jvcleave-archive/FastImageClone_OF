@@ -37,15 +37,13 @@ G_BEGIN_DECLS
  * @G_APP_INFO_CREATE_NONE: No flags.
  * @G_APP_INFO_CREATE_NEEDS_TERMINAL: Application opens in a terminal window.
  * @G_APP_INFO_CREATE_SUPPORTS_URIS: Application supports URI arguments.
- * @G_APP_INFO_CREATE_SUPPORTS_STARTUP_NOTIFICATION: Application supports startup notification. Since 2.26
  *
  * Flags used when creating a #GAppInfo.
  */
 typedef enum {
-  G_APP_INFO_CREATE_NONE                           = 0,         /*< nick=none >*/
-  G_APP_INFO_CREATE_NEEDS_TERMINAL                 = (1 << 0),  /*< nick=needs-terminal >*/
-  G_APP_INFO_CREATE_SUPPORTS_URIS                  = (1 << 1),  /*< nick=supports-uris >*/
-  G_APP_INFO_CREATE_SUPPORTS_STARTUP_NOTIFICATION  = (1 << 2)   /*< nick=supports-startup-notification >*/
+  G_APP_INFO_CREATE_NONE           = 0,         /*< nick=none >*/
+  G_APP_INFO_CREATE_NEEDS_TERMINAL = (1 << 0),  /*< nick=needs-terminal >*/
+  G_APP_INFO_CREATE_SUPPORTS_URIS  = (1 << 1)   /*< nick=supports-uris >*/
 } GAppInfoCreateFlags;
 
 /**
@@ -436,14 +434,6 @@ typedef enum {
  *     domain. Use g_dbus_error_get_remote_error() to extract the D-Bus
  *     error name and g_dbus_error_strip_remote_error() to fix up the
  *     message so it matches what was received on the wire. Since 2.26.
- * @G_IO_ERROR_HOST_UNREACHABLE: Host unreachable. Since 2.26
- * @G_IO_ERROR_NETWORK_UNREACHABLE: Network unreachable. Since 2.26
- * @G_IO_ERROR_CONNECTION_REFUSED: Connection refused. Since 2.26
- * @G_IO_ERROR_PROXY_FAILED: Connection to proxy server failed. Since 2.26
- * @G_IO_ERROR_PROXY_AUTH_FAILED: Proxy authentication failed. Since 2.26
- * @G_IO_ERROR_PROXY_NEED_AUTH: Proxy server needs authentication. Since 2.26
- * @G_IO_ERROR_PROXY_NOT_ALLOWED: Proxy connection is not allowed by ruleset.
- *     Since 2.26
  *
  * Error codes returned by GIO functions.
  *
@@ -485,14 +475,7 @@ typedef enum {
   G_IO_ERROR_ADDRESS_IN_USE,
   G_IO_ERROR_PARTIAL_INPUT,
   G_IO_ERROR_INVALID_DATA,
-  G_IO_ERROR_DBUS_ERROR,
-  G_IO_ERROR_HOST_UNREACHABLE,
-  G_IO_ERROR_NETWORK_UNREACHABLE,
-  G_IO_ERROR_CONNECTION_REFUSED,
-  G_IO_ERROR_PROXY_FAILED,
-  G_IO_ERROR_PROXY_AUTH_FAILED,
-  G_IO_ERROR_PROXY_NEED_AUTH,
-  G_IO_ERROR_PROXY_NOT_ALLOWED
+  G_IO_ERROR_DBUS_ERROR
 } GIOErrorEnum;
 
 
@@ -570,27 +553,6 @@ typedef enum {
   G_OUTPUT_STREAM_SPLICE_CLOSE_TARGET = (1 << 1)
 } GOutputStreamSpliceFlags;
 
-
-/**
- * GIOStreamSpliceFlags:
- * @G_IO_STREAM_SPLICE_NONE: Do not close either stream.
- * @G_IO_STREAM_SPLICE_CLOSE_STREAM1: Close the first stream after
- *     the splice.
- * @G_IO_STREAM_SPLICE_CLOSE_STREAM2: Close the second stream after
- *     the splice.
- * @G_IO_STREAM_SPLICE_WAIT_FOR_BOTH: Wait for both splice operations to finish
- *     before calling the callback.
- *
- * GIOStreamSpliceFlags determine how streams should be spliced.
- *
- * Since: 2.28
- **/
-typedef enum {
-  G_IO_STREAM_SPLICE_NONE          = 0,
-  G_IO_STREAM_SPLICE_CLOSE_STREAM1 = (1 << 0),
-  G_IO_STREAM_SPLICE_CLOSE_STREAM2 = (1 << 1),
-  G_IO_STREAM_SPLICE_WAIT_FOR_BOTH = (1 << 2)
-} GIOStreamSpliceFlags;
 
 /**
  * GEmblemOrigin:
@@ -758,7 +720,7 @@ typedef enum {
  * or a socket created with socketpair()).
  *
  * For abstract sockets, there are two incompatible ways of naming
- * them; the man pages suggest using the entire <literal>struct
+ * them: the man pages suggest using the entire <literal>struct
  * sockaddr_un</literal> as the name, padding the unused parts of the
  * %sun_path field with zeroes; this corresponds to
  * %G_UNIX_SOCKET_ADDRESS_ABSTRACT_PADDED. However, many programs
@@ -1007,8 +969,6 @@ typedef enum
  * method.
  * @G_DBUS_CONNECTION_FLAGS_MESSAGE_BUS_CONNECTION: Pass this flag if connecting to a peer that is a
  * message bus. This means that the Hello() method will be invoked as part of the connection setup.
- * @G_DBUS_CONNECTION_FLAGS_DELAY_MESSAGE_PROCESSING: If set, processing of D-Bus messages is
- * delayed until g_dbus_connection_start_message_processing() is called.
  *
  * Flags used when creating a new #GDBusConnection.
  *
@@ -1019,8 +979,7 @@ typedef enum {
   G_DBUS_CONNECTION_FLAGS_AUTHENTICATION_CLIENT = (1<<0),
   G_DBUS_CONNECTION_FLAGS_AUTHENTICATION_SERVER = (1<<1),
   G_DBUS_CONNECTION_FLAGS_AUTHENTICATION_ALLOW_ANONYMOUS = (1<<2),
-  G_DBUS_CONNECTION_FLAGS_MESSAGE_BUS_CONNECTION = (1<<3),
-  G_DBUS_CONNECTION_FLAGS_DELAY_MESSAGE_PROCESSING = (1<<4)
+  G_DBUS_CONNECTION_FLAGS_MESSAGE_BUS_CONNECTION = (1<<3)
 } GDBusConnectionFlags;
 
 /**
@@ -1174,214 +1133,6 @@ typedef enum
   G_DBUS_SERVER_FLAGS_RUN_IN_THREAD = (1<<0),
   G_DBUS_SERVER_FLAGS_AUTHENTICATION_ALLOW_ANONYMOUS = (1<<1)
 } GDBusServerFlags;
-
-/**
- * GDBusSignalFlags:
- * @G_DBUS_SIGNAL_FLAGS_NONE: No flags set.
- * @G_DBUS_SIGNAL_FLAGS_NO_MATCH_RULE: Don't actually send the AddMatch
- * D-Bus call for this signal subscription.  This gives you more control
- * over which match rules you add (but you must add them manually).
- *
- * Flags used when subscribing to signals via g_dbus_connection_signal_subscribe().
- *
- * Since: 2.26
- */
-typedef enum /*< flags >*/
-{
-  G_DBUS_SIGNAL_FLAGS_NONE = 0,
-  G_DBUS_SIGNAL_FLAGS_NO_MATCH_RULE = (1<<0)
-} GDBusSignalFlags;
-
-/**
- * GDBusSendMessageFlags:
- * @G_DBUS_SEND_MESSAGE_FLAGS_NONE: No flags set.
- * @G_DBUS_SEND_MESSAGE_FLAGS_PRESERVE_SERIAL: Do not automatically
- * assign a serial number from the #GDBusConnection object when
- * sending a message.
- *
- * Flags used when sending #GDBusMessage<!-- -->s on a #GDBusConnection.
- *
- * Since: 2.26
- */
-typedef enum
-{
-  G_DBUS_SEND_MESSAGE_FLAGS_NONE = 0,
-  G_DBUS_SEND_MESSAGE_FLAGS_PRESERVE_SERIAL = (1<<0)
-} GDBusSendMessageFlags;
-
-/**
- * GCredentialsType:
- * @G_CREDENTIALS_TYPE_INVALID: Indicates an invalid native credential type.
- * @G_CREDENTIALS_TYPE_LINUX_UCRED: The native credentials type is a <type>struct ucred</type>.
- * @G_CREDENTIALS_TYPE_FREEBSD_CMSGCRED: The native credentials type is a <type>struct cmsgcred</type>.
- *
- * Enumeration describing different kinds of native credential types.
- *
- * Since: 2.26
- */
-typedef enum
-{
-  G_CREDENTIALS_TYPE_INVALID,
-  G_CREDENTIALS_TYPE_LINUX_UCRED,
-  G_CREDENTIALS_TYPE_FREEBSD_CMSGCRED
-} GCredentialsType;
-
-/**
- * GDBusMessageByteOrder:
- * @G_DBUS_MESSAGE_BYTE_ORDER_BIG_ENDIAN: The byte order is big endian.
- * @G_DBUS_MESSAGE_BYTE_ORDER_LITTLE_ENDIAN: The byte order is little endian.
- *
- * Enumeration used to describe the byte order of a D-Bus message.
- *
- * Since: 2.26
- */
-typedef enum
-{
-  G_DBUS_MESSAGE_BYTE_ORDER_BIG_ENDIAN    = 'B',
-  G_DBUS_MESSAGE_BYTE_ORDER_LITTLE_ENDIAN = 'l'
-} GDBusMessageByteOrder;
-
-/**
- * GApplicationFlags:
- * @G_APPLICATION_FLAGS_NONE: Default
- * @G_APPLICATION_IS_SERVICE: Run as a service. In this mode, registration
- *      fails if the service is already running, and the application will
- *      stay around for a while when the use count falls to zero.
- * @G_APPLICATION_IS_LAUNCHER: Don't try to become the primary instance.
- * @G_APPLICATION_HANDLES_OPEN: This application handles opening files (in
- *     the primary instance). Note that this flag only affects the default
- *     implementation of local_command_line(), and has no effect if
- *     %G_APPLICATION_HANDLES_COMMAND_LINE is given.
- *     See g_application_run() for details.
- * @G_APPLICATION_HANDLES_COMMAND_LINE: This application handles command line
- *     arguments (in the primary instance). Note that this flag only affect
- *     the default implementation of local_command_line().
- *     See g_application_run() for details.
- * @G_APPLICATION_SEND_ENVIRONMENT: Send the environment of the
- *     launching process to the primary instance. Set this flag if your
- *     application is expected to behave differently depending on certain
- *     environment variables. For instance, an editor might be expected
- *     to use the <envar>GIT_COMMITTER_NAME</envar> environment variable
- *     when editing a git commit message. The environment is available
- *     to the #GApplication::command-line signal handler, via
- *     g_application_command_line_getenv().
- *
- * Flags used to define the behaviour of a #GApplication.
- *
- * Since: 2.28
- **/
-typedef enum
-{
-  G_APPLICATION_FLAGS_NONE,
-  G_APPLICATION_IS_SERVICE  =          (1 << 0),
-  G_APPLICATION_IS_LAUNCHER =          (1 << 1),
-
-  G_APPLICATION_HANDLES_OPEN =         (1 << 2),
-  G_APPLICATION_HANDLES_COMMAND_LINE = (1 << 3),
-  G_APPLICATION_SEND_ENVIRONMENT    =  (1 << 4)
-} GApplicationFlags;
-
-/**
- * GTlsError:
- * @G_TLS_ERROR_UNAVAILABLE: No TLS provider is available
- * @G_TLS_ERROR_MISC: Miscellaneous TLS error
- * @G_TLS_ERROR_BAD_CERTIFICATE: A certificate could not be parsed
- * @G_TLS_ERROR_NOT_TLS: The TLS handshake failed because the
- *   peer does not seem to be a TLS server.
- * @G_TLS_ERROR_HANDSHAKE: The TLS handshake failed because the
- *   peer's certificate was not acceptable.
- * @G_TLS_ERROR_CERTIFICATE_REQUIRED: The TLS handshake failed because
- *   the server requested a client-side certificate, but none was
- *   provided. See g_tls_connection_set_certificate().
- * @G_TLS_ERROR_EOF: The TLS connection was closed without proper
- *   notice, which may indicate an attack. See
- *   g_tls_connection_set_require_close_notify().
- *
- * An error code used with %G_TLS_ERROR in a #GError returned from a
- * TLS-related routine.
- *
- * Since: 2.28
- */
-typedef enum {
-  G_TLS_ERROR_UNAVAILABLE,
-  G_TLS_ERROR_MISC,
-  G_TLS_ERROR_BAD_CERTIFICATE,
-  G_TLS_ERROR_NOT_TLS,
-  G_TLS_ERROR_HANDSHAKE,
-  G_TLS_ERROR_CERTIFICATE_REQUIRED,
-  G_TLS_ERROR_EOF
-} GTlsError;
-
-/**
- * GTlsCertificateFlags:
- * @G_TLS_CERTIFICATE_UNKNOWN_CA: The signing certificate authority is
- *   not known.
- * @G_TLS_CERTIFICATE_BAD_IDENTITY: The certificate does not match the
- *   expected identity of the site that it was retrieved from.
- * @G_TLS_CERTIFICATE_NOT_ACTIVATED: The certificate's activation time
- *   is still in the future
- * @G_TLS_CERTIFICATE_EXPIRED: The certificate has expired
- * @G_TLS_CERTIFICATE_REVOKED: The certificate has been revoked
- *   according to the #GTlsContext's certificate revocation list.
- * @G_TLS_CERTIFICATE_INSECURE: The certificate's algorithm is
- *   considered insecure.
- * @G_TLS_CERTIFICATE_GENERIC_ERROR: Some other error occurred validating
- *   the certificate
- * @G_TLS_CERTIFICATE_VALIDATE_ALL: the combination of all of the above
- *   flags
- *
- * A set of flags describing TLS certification validation. This can be
- * used to set which validation steps to perform (eg, with
- * g_tls_client_connection_set_validation_flags()), or to describe why
- * a particular certificate was rejected (eg, in
- * #GTlsConnection::accept-certificate).
- *
- * Since: 2.28
- */
-typedef enum {
-  G_TLS_CERTIFICATE_UNKNOWN_CA    = (1 << 0),
-  G_TLS_CERTIFICATE_BAD_IDENTITY  = (1 << 1),
-  G_TLS_CERTIFICATE_NOT_ACTIVATED = (1 << 2),
-  G_TLS_CERTIFICATE_EXPIRED       = (1 << 3),
-  G_TLS_CERTIFICATE_REVOKED       = (1 << 4),
-  G_TLS_CERTIFICATE_INSECURE      = (1 << 5),
-  G_TLS_CERTIFICATE_GENERIC_ERROR = (1 << 6),
-
-  G_TLS_CERTIFICATE_VALIDATE_ALL  = 0x007f
-} GTlsCertificateFlags;
-
-/**
- * GTlsAuthenticationMode:
- * @G_TLS_AUTHENTICATION_NONE: client authentication not required
- * @G_TLS_AUTHENTICATION_REQUESTED: client authentication is requested
- * @G_TLS_AUTHENTICATION_REQUIRED: client authentication is required
- *
- * The client authentication mode for a #GTlsServerConnection.
- *
- * Since: 2.28
- */
-typedef enum {
-  G_TLS_AUTHENTICATION_NONE,
-  G_TLS_AUTHENTICATION_REQUESTED,
-  G_TLS_AUTHENTICATION_REQUIRED
-} GTlsAuthenticationMode;
-
-/**
- * GTlsRehandshakeMode:
- * @G_TLS_REHANDSHAKE_NEVER: Never allow rehandshaking
- * @G_TLS_REHANDSHAKE_SAFELY: Allow safe rehandshaking only
- * @G_TLS_REHANDSHAKE_UNSAFELY: Allow unsafe rehandshaking
- *
- * When to allow rehandshaking. See
- * g_tls_connection_set_rehandshake_mode().
- *
- * Since: 2.28
- */
-typedef enum {
-  G_TLS_REHANDSHAKE_NEVER,
-  G_TLS_REHANDSHAKE_SAFELY,
-  G_TLS_REHANDSHAKE_UNSAFELY
-} GTlsRehandshakeMode;
 
 G_END_DECLS
 

@@ -28,7 +28,6 @@
 #define __G_ZLIB_COMPRESSOR_H__
 
 #include <gio/gconverter.h>
-#include <gio/gfileinfo.h>
 
 G_BEGIN_DECLS
 
@@ -50,10 +49,6 @@ GType            g_zlib_compressor_get_type (void) G_GNUC_CONST;
 
 GZlibCompressor *g_zlib_compressor_new (GZlibCompressorFormat format,
 					int level);
-
-GFileInfo       *g_zlib_compressor_get_file_info (GZlibCompressor *compressor);
-void             g_zlib_compressor_set_file_info (GZlibCompressor *compressor,
-                                                  GFileInfo       *file_info);
 
 G_END_DECLS
 

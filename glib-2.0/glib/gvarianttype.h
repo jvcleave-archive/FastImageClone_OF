@@ -20,10 +20,6 @@
  * Author: Ryan Lortie <desrt@desrt.ca>
  */
 
-#if defined(G_DISABLE_SINGLE_INCLUDES) && !defined (__GLIB_H_INSIDE__) && !defined (GLIB_COMPILATION)
-#error "Only <glib.h> can be included directly."
-#endif
-
 #ifndef __G_VARIANT_TYPE_H__
 #define __G_VARIANT_TYPE_H__
 
@@ -38,7 +34,7 @@ G_BEGIN_DECLS
  * A type in the GVariant type system.
  *
  * Two types may not be compared by value; use g_variant_type_equal() or
- * g_variant_type_is_subtype_of().  May be copied using
+ * g_variant_type_is_subtype().  May be copied using
  * g_variant_type_copy() and freed using g_variant_type_free().
  **/
 typedef struct _GVariantType GVariantType;
@@ -126,12 +122,12 @@ typedef struct _GVariantType GVariantType;
 /**
  * G_VARIANT_TYPE_OBJECT_PATH:
  *
- * The type of a D-Bus object reference.  These are strings of a
+ * The type of a DBus object reference.  These are strings of a
  * specific format used to identify objects at a given destination on
  * the bus.
  *
- * If you are not interacting with D-Bus, then there is no reason to make
- * use of this type.  If you are, then the D-Bus specification contains a
+ * If you are not interacting with DBus, then there is no reason to make
+ * use of this type.  If you are, then the DBus specification contains a
  * precise description of valid object paths.
  **/
 #define G_VARIANT_TYPE_OBJECT_PATH          ((const GVariantType *) "o")
@@ -139,11 +135,11 @@ typedef struct _GVariantType GVariantType;
 /**
  * G_VARIANT_TYPE_SIGNATURE:
  *
- * The type of a D-Bus type signature.  These are strings of a specific
- * format used as type signatures for D-Bus methods and messages.
+ * The type of a DBus type signature.  These are strings of a specific
+ * format used as type signatures for DBus methods and messages.
  *
- * If you are not interacting with D-Bus, then there is no reason to make
- * use of this type.  If you are, then the D-Bus specification contains a
+ * If you are not interacting with DBus, then there is no reason to make
+ * use of this type.  If you are, then the DBus specification contains a
  * precise description of valid signature strings.
  **/
 #define G_VARIANT_TYPE_SIGNATURE            ((const GVariantType *) "g")
@@ -161,9 +157,9 @@ typedef struct _GVariantType GVariantType;
  *
  * The type of a 32bit signed integer value, that by convention, is used
  * as an index into an array of file descriptors that are sent alongside
- * a D-Bus message.
+ * a DBus message.
  *
- * If you are not interacting with D-Bus, then there is no reason to make
+ * If you are not interacting with DBus, then there is no reason to make
  * use of this type.
  **/
 #define G_VARIANT_TYPE_HANDLE               ((const GVariantType *) "h")
@@ -230,31 +226,6 @@ typedef struct _GVariantType GVariantType;
  * dictionary entry type.
  **/
 #define G_VARIANT_TYPE_DICTIONARY           ((const GVariantType *) "a{?*}")
-
-/**
- * G_VARIANT_TYPE_STRING_ARRAY:
- *
- * The type of an array of strings.
- **/
-#define G_VARIANT_TYPE_STRING_ARRAY         ((const GVariantType *) "as")
-
-/**
- * G_VARIANT_TYPE_BYTESTRING:
- *
- * The type of an array of bytes.  This type is commonly used to pass
- * around strings that may not be valid utf8.  In that case, the
- * convention is that the nul terminator character should be included as
- * the last character in the array.
- **/
-#define G_VARIANT_TYPE_BYTESTRING           ((const GVariantType *) "ay")
-
-/**
- * G_VARIANT_TYPE_BYTESTRING_ARRAY:
- *
- * The type of an array of byte strings (an array of arrays of bytes).
- **/
-#define G_VARIANT_TYPE_BYTESTRING_ARRAY     ((const GVariantType *) "aay")
-
 
 /**
  * G_VARIANT_TYPE:

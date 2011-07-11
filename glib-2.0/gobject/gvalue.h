@@ -151,15 +151,7 @@ gboolean g_value_transform		(const GValue   *src_value,
 void	g_value_register_transform_func	(GType		 src_type,
 					 GType		 dest_type,
 					 GValueTransform transform_func);
-
-/**
- * G_VALUE_NOCOPY_CONTENTS:
- *
- * If passed to G_VALUE_COLLECT(), allocated data won't be copied
- * but used verbatim. This does not affect ref-counted types like
- * objects. For more details, see the #GValueTable documentation.
- */
-#define G_VALUE_NOCOPY_CONTENTS (1 << 27)
+#define G_VALUE_NOCOPY_CONTENTS		(1 << 27)
 
 
 G_END_DECLS

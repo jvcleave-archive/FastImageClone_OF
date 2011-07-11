@@ -33,7 +33,6 @@
 
 #include <glibconfig.h>
 #include <glib/gmacros.h>
-#include <time.h>
 
 G_BEGIN_DECLS
 

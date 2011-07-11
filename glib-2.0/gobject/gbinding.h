@@ -56,8 +56,8 @@ typedef struct _GBinding        GBinding;
  * @user_data: data passed to the transform function
  *
  * A function to be called to transform the source property of @source
- * from @source_value into the target property of @target
- * using @target_value.
+ * from @source_value into the target property of @target using
+ * @target_value
  *
  * Return value: %TRUE if the transformation was successful, and %FALSE
  *   otherwise
@@ -72,18 +72,10 @@ typedef gboolean (* GBindingTransformFunc) (GBinding     *binding,
 /**
  * GBindingFlags:
  * @G_BINDING_DEFAULT: The default binding; if the source property
- *   changes, the target property is updated with its value.
+ *   changes, the target property is updated with its value
  * @G_BINDING_BIDIRECTIONAL: Bidirectional binding; if either the
  *   property of the source or the property of the target changes,
- *   the other is updated.
- * @G_BINDING_SYNC_CREATE: Synchronize the values of the source and
- *   target properties when creating the binding; the direction of
- *   the synchronization is always from the source to the target.
- * @G_BINDING_INVERT_BOOLEAN: If the two properties being bound are
- *   booleans, setting one to %TRUE will result in the other being
- *   set to %FALSE and vice versa. This flag will only work for
- *   boolean properties, and cannot be used when passing custom
- *   transformation functions to g_object_bind_property_full().
+ *   the other is updated
  *
  * Flags to be passed to g_object_bind_property() or
  * g_object_bind_property_full().
@@ -93,11 +85,9 @@ typedef gboolean (* GBindingTransformFunc) (GBinding     *binding,
  * Since: 2.26
  */
 typedef enum { /*< prefix=G_BINDING >*/
-  G_BINDING_DEFAULT        = 0,
+  G_BINDING_DEFAULT       = 0,
 
-  G_BINDING_BIDIRECTIONAL  = 1 << 0,
-  G_BINDING_SYNC_CREATE    = 1 << 1,
-  G_BINDING_INVERT_BOOLEAN = 1 << 2
+  G_BINDING_BIDIRECTIONAL = 1 << 0
 } GBindingFlags;
 
 GType                 g_binding_flags_get_type      (void) G_GNUC_CONST;
@@ -109,27 +99,20 @@ GObject *             g_binding_get_target          (GBinding *binding);
 G_CONST_RETURN gchar *g_binding_get_source_property (GBinding *binding);
 G_CONST_RETURN gchar *g_binding_get_target_property (GBinding *binding);
 
-GBinding *g_object_bind_property               (gpointer               source,
-                                                const gchar           *source_property,
-                                                gpointer               target,
-                                                const gchar           *target_property,
-                                                GBindingFlags          flags);
-GBinding *g_object_bind_property_full          (gpointer               source,
-                                                const gchar           *source_property,
-                                                gpointer               target,
-                                                const gchar           *target_property,
-                                                GBindingFlags          flags,
-                                                GBindingTransformFunc  transform_to,
-                                                GBindingTransformFunc  transform_from,
-                                                gpointer               user_data,
-                                                GDestroyNotify         notify);
-GBinding *g_object_bind_property_with_closures (gpointer               source,
-                                                const gchar           *source_property,
-                                                gpointer               target,
-                                                const gchar           *target_property,
-                                                GBindingFlags          flags,
-                                                GClosure              *transform_to,
-                                                GClosure              *transform_from);
+GBinding *g_object_bind_property      (gpointer               source,
+                                       const gchar           *source_property,
+                                       gpointer               target,
+                                       const gchar           *target_property,
+                                       GBindingFlags          flags);
+GBinding *g_object_bind_property_full (gpointer               source,
+                                       const gchar           *source_property,
+                                       gpointer               target,
+                                       const gchar           *target_property,
+                                       GBindingFlags          flags,
+                                       GBindingTransformFunc  transform_to,
+                                       GBindingTransformFunc  transform_from,
+                                       gpointer               user_data,
+                                       GDestroyNotify         notify);
 
 G_END_DECLS
 

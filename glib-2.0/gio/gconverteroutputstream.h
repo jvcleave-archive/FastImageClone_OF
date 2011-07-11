@@ -41,6 +41,7 @@ G_BEGIN_DECLS
 
 /**
  * GConverterOutputStream:
+ * @parent_instance: a #GFilterOutputStream.
  *
  * An implementation of #GFilterOutputStream that allows data
  * conversion.

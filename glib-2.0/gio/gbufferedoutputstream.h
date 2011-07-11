@@ -40,6 +40,7 @@ G_BEGIN_DECLS
 
 /**
  * GBufferedOutputStream:
+ * @parent_class: The parent class.
  *
  * An implementation of #GFilterOutputStream with a sized buffer.
  **/

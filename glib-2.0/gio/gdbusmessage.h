@@ -33,7 +33,41 @@ G_BEGIN_DECLS
 
 #define G_TYPE_DBUS_MESSAGE         (g_dbus_message_get_type ())
 #define G_DBUS_MESSAGE(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), G_TYPE_DBUS_MESSAGE, GDBusMessage))
+#define G_DBUS_MESSAGE_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), G_TYPE_DBUS_MESSAGE, GDBusMessageClass))
+#define G_DBUS_MESSAGE_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), G_TYPE_DBUS_MESSAGE, GDBusMessageClass))
 #define G_IS_DBUS_MESSAGE(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), G_TYPE_DBUS_MESSAGE))
+#define G_IS_DBUS_MESSAGE_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), G_TYPE_DBUS_MESSAGE))
+
+typedef struct _GDBusMessageClass   GDBusMessageClass;
+typedef struct _GDBusMessagePrivate GDBusMessagePrivate;
+
+/**
+ * GDBusMessageClass:
+ *
+ * Class structure for #GDBusMessage.
+ *
+ * Since: 2.26
+ */
+struct _GDBusMessageClass
+{
+  /*< private >*/
+  GObjectClass parent_class;
+};
+
+/**
+ * GDBusMessage:
+ *
+ * The #GDBusMessage structure contains only private data and should
+ * only be accessed using the provided API.
+ *
+ * Since: 2.26
+ */
+struct _GDBusMessage
+{
+  /*< private >*/
+  GObject parent_instance;
+  GDBusMessagePrivate *priv;
+};
 
 GType                     g_dbus_message_get_type           (void) G_GNUC_CONST;
 GDBusMessage             *g_dbus_message_new                (void);
@@ -58,13 +92,6 @@ GDBusMessage             *g_dbus_message_new_method_error_literal (GDBusMessage 
                                                                    const gchar              *error_message);
 gchar                    *g_dbus_message_print              (GDBusMessage             *message,
                                                              guint                     indent);
-gboolean                  g_dbus_message_get_locked         (GDBusMessage             *message);
-void                      g_dbus_message_lock               (GDBusMessage             *message);
-GDBusMessage             *g_dbus_message_copy               (GDBusMessage             *message,
-                                                             GError                  **error);
-GDBusMessageByteOrder     g_dbus_message_get_byte_order     (GDBusMessage             *message);
-void                      g_dbus_message_set_byte_order     (GDBusMessage             *message,
-                                                             GDBusMessageByteOrder     byte_order);
 
 GDBusMessageType          g_dbus_message_get_message_type   (GDBusMessage             *message);
 void                      g_dbus_message_set_message_type   (GDBusMessage             *message,

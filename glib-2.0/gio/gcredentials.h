@@ -45,6 +45,45 @@ G_BEGIN_DECLS
 #define G_IS_CREDENTIALS_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), G_TYPE_CREDENTIALS))
 
 typedef struct _GCredentialsClass   GCredentialsClass;
+typedef struct _GCredentialsPrivate GCredentialsPrivate;
+
+/**
+ * GCredentials:
+ *
+ * The #GCredentials structure contains only private data and
+ * should only be accessed using the provided API.
+ *
+ * Since: 2.26
+ */
+struct _GCredentials
+{
+  /*< private >*/
+  GObject parent_instance;
+  GCredentialsPrivate *priv;
+};
+
+/**
+ * GCredentialsClass:
+ *
+ * Class structure for #GCredentials.
+ *
+ * Since: 2.26
+ */
+struct _GCredentialsClass
+{
+  /*< private >*/
+  GObjectClass parent_class;
+
+  /* Padding for future expansion */
+  void (*_g_reserved1) (void);
+  void (*_g_reserved2) (void);
+  void (*_g_reserved3) (void);
+  void (*_g_reserved4) (void);
+  void (*_g_reserved5) (void);
+  void (*_g_reserved6) (void);
+  void (*_g_reserved7) (void);
+  void (*_g_reserved8) (void);
+};
 
 GType            g_credentials_get_type           (void) G_GNUC_CONST;
 
@@ -52,11 +91,8 @@ GCredentials    *g_credentials_new                (void);
 
 gchar           *g_credentials_to_string          (GCredentials    *credentials);
 
-gpointer         g_credentials_get_native         (GCredentials    *credentials,
-                                                   GCredentialsType native_type);
-
+gpointer         g_credentials_get_native         (GCredentials    *credentials);
 void             g_credentials_set_native         (GCredentials    *credentials,
-                                                   GCredentialsType native_type,
                                                    gpointer         native);
 
 gboolean         g_credentials_is_same_user       (GCredentials    *credentials,
